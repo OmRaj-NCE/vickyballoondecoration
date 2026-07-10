@@ -1,13 +1,9 @@
-// ============================================
-// APP COMPONENT
-// Main application with routing
-// ============================================
-
-import React from 'react';
+// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import WhatsAppButton from './components/WhatsAppButton';
+import SocialButtons from './components/SocialButtons';
+import ScrollToTop from './components/ScrollToTop'; // <-- import
 import Home from './pages/Home';
 import Services from './pages/Services';
 import HoneymoonDecoration from './pages/HoneymoonDecoration';
@@ -17,19 +13,16 @@ import './App.css';
 function App() {
   return (
     <Router>
-      <div className="app">
-        <Navbar />
-        <main className="app-main">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/honeymoon-decoration" element={<HoneymoonDecoration />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </main>
-        <Footer />
-        <WhatsAppButton />
-      </div>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/honeymoon-decoration" element={<HoneymoonDecoration />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+      <Footer />
+      <SocialButtons />
+      <ScrollToTop /> {/* <-- add this */}
     </Router>
   );
 }

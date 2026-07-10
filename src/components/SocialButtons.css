@@ -1,0 +1,105 @@
+/* src/components/SocialButtons.css */
+.social-buttons-container {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  z-index: 999;
+  align-items: flex-end;
+}
+
+.social-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+/* Individual colors */
+.social-whatsapp {
+  background: linear-gradient(135deg, #25D366, #128C7E);
+}
+.social-instagram {
+  background: linear-gradient(135deg, #F58529, #DD2A7B, #8134AF);
+}
+.social-facebook {
+  background: linear-gradient(135deg, #1877F2, #0D65D9);
+}
+
+.social-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.social-icon {
+  font-size: 1.8rem;
+  color: #fff;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+}
+
+/* Pulsing ring for WhatsApp */
+.pulse-ring {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: rgba(37, 211, 102, 0.3);
+  top: 0;
+  left: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Tooltip on hover */
+.social-tooltip {
+  position: absolute;
+  right: calc(100% + 12px);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.social-btn:hover .social-tooltip {
+  opacity: 1;
+}
+
+/* Responsive: move up on small screens if needed */
+@media (max-width: 480px) {
+  .social-buttons-container {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    gap: 0.6rem;
+  }
+  .social-btn {
+    width: 48px;
+    height: 48px;
+  }
+  .social-icon {
+    font-size: 1.5rem;
+  }
+  .social-tooltip {
+    display: none; /* hide tooltip on mobile to avoid clutter */
+  }
+}
