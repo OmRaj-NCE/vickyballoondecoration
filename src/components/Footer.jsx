@@ -66,7 +66,7 @@ const Footer = () => {
       <div className="footer-bottom">
         <div className="container">
           <p>© {currentYear} Vicky Balloon Decoration. All rights reserved.</p>
-          <p className="footer-credit">Made by Editor Raj</p>
+          {/* <p className="footer-credit">Made by Editor Raj</p> */}
         </div>
       </div>
     </footer>
