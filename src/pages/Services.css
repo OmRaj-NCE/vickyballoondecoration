@@ -1,0 +1,132 @@
+/* ============================================
+   SERVICES PAGE STYLES
+   ============================================ */
+
+.services-page {
+  overflow-x: hidden;
+}
+
+/* Banner */
+.services-banner {
+  position: relative;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.services-banner::before {
+  content: '🎈';
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  font-size: 10rem;
+  opacity: 0.08;
+  transform: rotate(-15deg);
+}
+
+.services-banner::after {
+  content: '🎉';
+  position: absolute;
+  bottom: 20%;
+  right: 5%;
+  font-size: 12rem;
+  opacity: 0.08;
+  transform: rotate(15deg);
+}
+
+.services-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 750px;
+}
+
+.services-banner-content h1 {
+  color: var(--color-white);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  margin-bottom: 8px;
+}
+
+.services-banner-subtitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  font-weight: 600;
+  color: var(--color-gold);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+.services-banner-description {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.services-banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+/* Services Grid */
+.services-grid-section {
+  background: var(--color-white);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  margin-top: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-banner {
+    min-height: 40vh;
+    padding: 100px 0 60px;
+  }
+
+  .services-banner::before,
+  .services-banner::after {
+    font-size: 6rem;
+  }
+
+  .services-banner-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .services-banner {
+    min-height: 35vh;
+    padding: 90px 0 50px;
+  }
+
+  .services-banner::before,
+  .services-banner::after {
+    font-size: 4rem;
+  }
+}

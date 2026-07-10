@@ -1,0 +1,123 @@
+/* ============================================
+   TESTIMONIALS / STATS STYLES
+   ============================================ */
+
+.testimonials {
+  background: var(--color-white);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  max-width: 900px;
+  margin: 0 auto 40px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 24px 20px;
+  background: var(--color-blush);
+  border-radius: var(--radius-card);
+  transition: var(--transition-smooth);
+}
+
+.stat-item:hover {
+  background: var(--color-white);
+  box-shadow: var(--shadow-soft);
+}
+
+.stat-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-gold));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.stat-label {
+  font-size: 0.95rem;
+  color: var(--color-text-light);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Trust Badge */
+.trust-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, var(--color-blush), var(--color-primary-light));
+  border-radius: var(--radius-button);
+  max-width: 500px;
+  margin: 0 auto;
+  border: 1px solid rgba(194, 24, 91, 0.1);
+}
+
+.trust-badge-icon {
+  font-size: 1.2rem;
+}
+
+.trust-badge-text {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-text);
+  letter-spacing: 0.3px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .stat-item {
+    padding: 20px 16px;
+  }
+
+  .stat-number {
+    font-size: 2rem;
+  }
+
+  .trust-badge {
+    padding: 14px 24px;
+    gap: 12px;
+  }
+
+  .trust-badge-text {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .stat-number {
+    font-size: 1.8rem;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+  }
+
+  .trust-badge {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 12px 20px;
+  }
+
+  .trust-badge-text {
+    font-size: 0.85rem;
+  }
+}
