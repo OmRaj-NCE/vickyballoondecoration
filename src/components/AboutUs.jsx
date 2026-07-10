@@ -1,3 +1,4 @@
+// src/components/AboutUs.jsx
 // ============================================
 // ABOUT US COMPONENT
 // Two-column layout: image left, text right
@@ -6,7 +7,8 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import aboutImg from '../assets/images/about-us.jpg';
+import { Link } from 'react-router-dom'; // ✅ use Link for internal routing
+import aboutImg from '../assets/images/about-us.jpg'; // make sure this file exists
 import './AboutUs.css';
 
 const AboutUs = () => {
@@ -29,6 +31,7 @@ const AboutUs = () => {
                 className="about-us-image"
                 loading="lazy"
                 onError={(e) => {
+                  // Fallback if image fails to load
                   e.target.style.display = 'none';
                   e.target.parentElement.classList.add('about-fallback');
                 }}
@@ -70,9 +73,9 @@ const AboutUs = () => {
                 </div>
               </div>
             </div>
-            <a href="/services" className="btn btn-primary about-us-btn">
+            <Link to="/services" className="btn btn-primary about-us-btn">
               Explore Our Services →
-            </a>
+            </Link>
           </motion.div>
         </div>
       </div>
