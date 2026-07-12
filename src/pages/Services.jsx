@@ -4,6 +4,7 @@
 // ============================================
 
 import React from 'react';
+import SEO from '../components/SEO';
 import { motion } from 'framer-motion';
 import ServiceCard from '../components/ServiceCard';
 import { servicesData } from '../data/servicesData';
@@ -25,6 +26,11 @@ const Services = () => {
   };
 
   return (
+    <>
+    <SEO
+        title="Vicky Balloon Decoration | Patna's Top Balloon Decorator & Birthday Planner"
+        description="Transform your celebrations with Patna's most trusted balloon decorator. From birthdays to honeymoon setups – creative, affordable, and stunning."
+      />
     <main className="services-page">
       {/* Services Banner */}
       <section className="services-banner">
@@ -74,6 +80,7 @@ const Services = () => {
       {/* CTA Section */}
       <CTASection />
     </main>
+    </>
   );
 };
 

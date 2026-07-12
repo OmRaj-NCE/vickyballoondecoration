@@ -4,6 +4,7 @@
 // ============================================
 
 import React from 'react';
+import SEO from '../components/SEO';
 import Hero from '../components/Hero';
 import AboutUs from '../components/AboutUs';
 import WhyChooseUs from '../components/WhyChooseUs';
@@ -13,6 +14,11 @@ import './Home.css';
 
 const Home = () => {
   return (
+      <>
+      <SEO
+        title="Vicky Balloon Decoration | Patna's Top Balloon Decorator & Birthday Planner"
+        description="Transform your celebrations with Patna's most trusted balloon decorator. From birthdays to honeymoon setups – creative, affordable, and stunning."
+      />
     <main className="home-page">
       {/* Hero Section */}
       <Hero />
@@ -51,6 +57,7 @@ const Home = () => {
       {/* CTA Section */}
       <CTASection />
     </main>
+      </>
   );
 };
 
