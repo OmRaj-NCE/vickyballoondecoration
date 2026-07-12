@@ -1,6 +1,6 @@
 // src/components/Hero.jsx
 // ============================================
-// HERO - AGENCY LEVEL (Performance Optimized)
+// HERO - AGENCY LEVEL (Safe Optimized)
 // Features: animated gradient bg, 3D tilt image,
 // floating decorations (responsive), typewriter, scroll indicator
 // ============================================
@@ -8,22 +8,19 @@
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { FaPhone, FaWhatsapp, FaChevronDown } from 'react-icons/fa';
 import { useEffect, useRef, useState } from 'react';
-import heroImg from '../assets/images/hero-image.jpg'; // fallback JPG
-// If you have a WebP version, import it: import heroImgWebp from '../assets/images/hero-image.webp';
+import heroImg from '../assets/images/hero-image.jpg';
 import './Hero.css';
 
 const Hero = () => {
   const heroRef = useRef(null);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
 
-  // Detect mobile for responsive decorations
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Subheadline for typewriter
   const subheadline = "Patna's Top-Rated Birthday Planner & Balloon Decorator";
   const characters = subheadline.split('');
 
@@ -44,7 +41,6 @@ const Hero = () => {
     },
   };
 
-  // 3D Tilt values
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useSpring(useTransform(y, [-100, 100], [8, -8]), { stiffness: 300, damping: 30 });
@@ -67,7 +63,6 @@ const Hero = () => {
     y.set(0);
   };
 
-  // All decoration items (emojis)
   const allDecorations = [
     { emoji: '🎈', size: 2.5, left: 5, top: 10, duration: 4, delay: 0 },
     { emoji: '🎉', size: 2, left: 85, top: 15, duration: 5, delay: 0.5 },
@@ -78,7 +73,6 @@ const Hero = () => {
     { emoji: '🎵', size: 1.8, left: 3, top: 45, duration: 5.2, delay: 1.2 },
   ];
 
-  // Use only first 4 on mobile to reduce DOM
   const decorations = isMobile ? allDecorations.slice(0, 4) : allDecorations;
 
   return (
@@ -89,7 +83,6 @@ const Hero = () => {
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      {/* Animated Gradient Background */}
       <div className="hero-bg-animation">
         <div className="hero-bg-orbe"></div>
         <div className="hero-bg-orbe hero-bg-orbe-2"></div>
@@ -98,32 +91,25 @@ const Hero = () => {
 
       <div className="container">
         <div className="hero-grid">
-          {/* Left: Image with 3D Tilt */}
           <motion.div
             className="hero-image-wrapper"
             style={{ rotateX, rotateY }}
             transition={{ type: 'spring', stiffness: 300, damping: 30 }}
           >
             <div className="hero-image-container">
-              {/* <picture> for WebP fallback – update srcSet with actual WebP if available */}
-              <picture>
-                {/* If you have a WebP version, uncomment the source line and update href */}
-                {/* <source srcSet={heroImgWebp} type="image/webp" /> */}
-                <img 
-                  src={heroImg} 
-                  alt="Vicky Balloon Decoration - Beautiful event decoration"
-                  className="hero-image"
-                  loading="eager"               // LCP – load immediately
-                  fetchpriority="high"           // Prioritize this image
-                  // Responsive sizes (if you have multiple versions)
-                  srcSet={`${heroImg}?w=400 400w, ${heroImg}?w=800 800w, ${heroImg}?w=1200 1200w`}
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </picture>
+              {/* Simple img – no srcSet, no picture – but with loading eager and fetchpriority high */}
+              <img 
+                src={heroImg} 
+                alt="Vicky Balloon Decoration - Beautiful event decoration"
+                className="hero-image"
+                loading="eager"
+                fetchpriority="high"
+                width="800"   // explicit width/height to prevent CLS
+                height="500"
+              />
               <div className="hero-image-glow"></div>
               <div className="hero-image-shine"></div>
             </div>
-            {/* Floating decoration badges */}
             <motion.div
               className="hero-badge"
               initial={{ opacity: 0, scale: 0 }}
@@ -134,9 +120,7 @@ const Hero = () => {
             </motion.div>
           </motion.div>
 
-          {/* Right: Content */}
           <div className="hero-content">
-            {/* Floating Decorations – responsive count */}
             <div className="hero-floaters">
               {decorations.map((item, index) => (
                 <motion.span
@@ -235,7 +219,6 @@ const Hero = () => {
               </motion.a>
             </motion.div>
 
-            {/* Scroll Indicator */}
             <motion.div
               className="hero-scroll-indicator"
               initial={{ opacity: 0 }}
