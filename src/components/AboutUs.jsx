@@ -30,6 +30,8 @@ const AboutUs = () => {
                 alt="Vicky Balloon Decoration - Beautiful event decoration setup" 
                 className="about-us-image"
                 loading="lazy"
+                width="600"   // explicit width/height to prevent CLS
+                height="400"
                 onError={(e) => {
                   // Fallback if image fails to load
                   e.target.style.display = 'none';
